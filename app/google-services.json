@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "718676520260",
+    "firebase_url": "https://pia11firebase-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "pia11firebase",
+    "storage_bucket": "pia11firebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:718676520260:android:1d5c657cf372290bbd3b11",
+        "android_client_info": {
+          "package_name": "com.example.pia11androidfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "718676520260-45gedvq2k67qg3k4q06b998b7pn151d5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASYLjDYburOPNC5sLEV_SV9iBCbCtBTCw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "718676520260-45gedvq2k67qg3k4q06b998b7pn151d5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "718676520260-g6mv1g46j4mpt9rmogc3qqenku71j0sh.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "se.greacemonkeyinc.Pia11v7Shopping"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:718676520260:android:ef0fba30974e5f73bd3b11",
+        "android_client_info": {
+          "package_name": "dev.korab.pia11shopping"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "718676520260-45gedvq2k67qg3k4q06b998b7pn151d5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASYLjDYburOPNC5sLEV_SV9iBCbCtBTCw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "718676520260-45gedvq2k67qg3k4q06b998b7pn151d5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "718676520260-g6mv1g46j4mpt9rmogc3qqenku71j0sh.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "se.greacemonkeyinc.Pia11v7Shopping"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
