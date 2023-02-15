@@ -55,7 +55,7 @@
         android:id="@+id/shoppingRV"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/errorMesTV"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addShoppingButton" />
@@ -70,4 +70,18 @@
         android:inputType="number"
         app:layout_constraintEnd_toStartOf="@+id/addShoppingButton"
         app:layout_constraintTop_toBottomOf="@+id/logoutButton" />
+
+    <TextView
+        android:id="@+id/errorMesTV"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:background="#B62A2A"
+        android:gravity="center"
+        android:text="Error Error"
+        android:textColor="#FFFFFF"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:visibility="visible" />
 </androidx.constraintlayout.widget.ConstraintLayout>

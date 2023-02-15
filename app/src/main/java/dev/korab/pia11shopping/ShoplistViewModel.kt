@@ -16,11 +16,28 @@ class ShoplistViewModel : ViewModel() {
         MutableLiveData<List<ShoppingItem>>()
     }
 
+    val errorMessage: MutableLiveData<String> by lazy {
+        MutableLiveData<String>()
+    }
+
 
     //fun addshopping(addshopname : String, addshopamount : Int, callback: () -> Unit) {
-    fun addshopping(addshopname : String, addshopamount : Int) {
+    fun addshopping(addshopname : String, addshopamount : String) {
 
-        val tempShopItem = ShoppingItem(addshopname, addshopamount)
+        if(addshopname == "") {
+            errorMessage.value = "Ange Text"
+            return
+        }
+
+        val shopamount = addshopamount.toIntOrNull()
+        if (shopamount == null) {
+            errorMessage.value = "Skriv en siffra"
+            return
+        }
+
+         errorMessage.value = ""
+
+        val tempShopItem = ShoppingItem(addshopname, shopamount)
 
         val database = Firebase.database
         val shopRef = database.getReference("androidshopping").child(Firebase.auth.currentUser!!.uid)

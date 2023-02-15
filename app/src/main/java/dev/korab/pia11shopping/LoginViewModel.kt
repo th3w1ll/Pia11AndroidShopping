@@ -26,12 +26,7 @@ class LoginViewModel : ViewModel() {
         }
 
         Firebase.auth.signInWithEmailAndPassword(email, password).addOnCompleteListener {task ->
-            if (task.isSuccessful) {
-                // Sign in success, update UI with the signed-in user's information
-                //Toast.makeText(requireContext(), "Login Succeded.", Toast.LENGTH_SHORT).show()
-            } else {
-                // If sign in fails, display a message to the user.
-                //Toast.makeText(requireContext(), "Login failed.", Toast.LENGTH_SHORT).show()
+            if (task.isSuccessful == false) {
                 errorMessage.value = "Fel inloggning"
             }
         }
@@ -55,19 +50,6 @@ class LoginViewModel : ViewModel() {
                 errorMessage.value = task.exception!!.localizedMessage!!
             }
 
-            /*
-            if (task.isSuccessful) {
-                // Sign in success, update UI with the signed-in user's information
-                //Toast.makeText(requireContext(), "Register Succeded.", Toast.LENGTH_SHORT).show()
-            } else {
-                // If sign in fails, display a message to the user.
-                //Toast.makeText(requireContext(), "Register failed.", Toast.LENGTH_SHORT).show()
-                //errorMessage.value = "Fel vid registrering"
-                errorMessage.value = task.exception!!.localizedMessage!!
-                Log.i("Pia11Debug", task.exception!!.message!!)
-                Log.i("Pia11Debug", task.exception!!.localizedMessage!!)
-            }
-             */
         }
     }
 

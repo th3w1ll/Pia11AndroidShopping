@@ -54,8 +54,17 @@ class ShoppingFragment : Fragment() {
         val shopObserver = Observer<List<ShoppingItem>> {
             shopadapter.notifyDataSetChanged()
         }
-
         model.shopitems.observe(viewLifecycleOwner, shopObserver)
+
+        val errorObserver = Observer<String> {
+            if (it == "") {
+                binding.errorMesTV.visibility = View.GONE
+            } else {
+                binding.errorMesTV.text = it
+                binding.errorMesTV.visibility = View.VISIBLE
+            }
+        }
+        model.errorMessage.observe(viewLifecycleOwner, errorObserver)
 
 
         //Detta är vår logout button
@@ -70,17 +79,11 @@ class ShoppingFragment : Fragment() {
             val addshopname = binding.shoppingNameET.text.toString()
             val addshopamount = binding.shoppingAmountET.text.toString()
 
-            val amount = addshopamount.toIntOrNull()
-            if (amount == null) {
-                //TODO: Visa Felmedelande
-                Toast.makeText(requireContext(),"Felaktig Inmatning", Toast.LENGTH_SHORT).show()
-            } else {
-                model.addshopping(addshopname, amount)
+            model.addshopping(addshopname, addshopamount)
 
-                binding.shoppingNameET.setText("")
-                binding.shoppingAmountET.setText("")
+            binding.shoppingNameET.setText("")
+            binding.shoppingAmountET.setText("")
 
-            }
         }
 
         model.loadShopping()
