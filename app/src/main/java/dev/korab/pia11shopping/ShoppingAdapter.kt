@@ -7,8 +7,10 @@ import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.commit
 import androidx.recyclerview.widget.RecyclerView
 import dev.korab.pia11shopping.R
+import dev.korab.pia11shopping.ShopDetailFragment
 import dev.korab.pia11shopping.ShoppingFragment
 import dev.korab.pia11shopping.ShoppingItem
 
@@ -71,6 +73,13 @@ class ShoppingAdapter : RecyclerView.Adapter<ShoppingAdapter.ViewHolder>() {
             frag.model.doneShop(currentShop, holder.shoppingCheckbox.isChecked)
         }
 
+        holder.itemView.setOnClickListener {
+            frag.requireActivity().supportFragmentManager.commit {
+                add(R.id.mainFragContainer, ShopDetailFragment(currentShop))
+                addToBackStack(null)
+            }
+
+        }
 
     }
 

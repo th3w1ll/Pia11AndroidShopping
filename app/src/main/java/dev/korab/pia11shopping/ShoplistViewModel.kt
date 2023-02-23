@@ -1,11 +1,15 @@
 package dev.korab.pia11shopping
 
+import android.graphics.Bitmap
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.ktx.storage
+import java.io.ByteArrayOutputStream
 import javax.security.auth.callback.Callback
 
 class ShoplistViewModel : ViewModel() {
@@ -87,6 +91,33 @@ class ShoplistViewModel : ViewModel() {
         }
     }
 
+    fun saveShopItem(saveitem : ShoppingItem) {
+
+        val database = Firebase.database
+        val shopRef = database.getReference("androidshopping").child(Firebase.auth.currentUser!!.uid)
+        shopRef.child(saveitem.fbid!!).setValue(saveitem).addOnCompleteListener {
+            loadShopping()
+        }
+    }
+
+    fun saveShopImage(saveitem: ShoppingItem, saveimage : Bitmap) {
+
+        //TODO: Skala ner bilden så att den inte tar för mycket plats på firebase.
+
+        var storageRef = Firebase.storage.reference
+        var imageRef = storageRef.child("shoppingimages").child(Firebase.auth.currentUser!!.uid)
+
+        val baos = ByteArrayOutputStream()
+        saveimage.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+        val data = baos.toByteArray()
+
+        imageRef.child(saveitem.fbid!!).putBytes(data).addOnFailureListener {
+            Log.i("Pia11Debug", "Det gick dåligt")
+        }.addOnSuccessListener {
+            Log.i("Pia11Debug", "Det gick bra!")
+        }
+
+    }
 
 
 }
